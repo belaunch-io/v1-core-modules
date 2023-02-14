@@ -8,7 +8,7 @@ This repo contains in-depth Smart Contracts used in BeLaunch on SUI.
 
 | Project name                                                          | Description                                                                                                                |
 | --------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| [Token Generator](./SUI_MOVE/coins)                                   | Create coin according to 0x2::coin::Coin standard.                                                                         |
+| [Token Generator](./SUI_MOVE/coins)                                   | Create coin according to 0x2::coin standard.                                                                         |
 | [BeLock](./SUI_MOVE/locked)                                           | Coins & LP Locker                                                                                                          |
 | [NFTs Marketplace](./SUI_MOVE/marketplace)                            | NFTs Marketplace allows users to freely buy and sell NFTs                                                                  |
 | [NFTs Store](./SUI_MOVE/store)                                        | Create an NFT store and issue NFTs for the first time (INO)                                                                |
