@@ -8,7 +8,7 @@ This repo contains in-depth Smart Contracts used in BeLaunch on 💧SUI.
 
 ## Existing modules
 
-| Project name                                                          | Description                                                                                                                |
+| Module name                                                          | Description                                                                                                                |
 | --------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | [Token Generator](./SUI_MOVE/coins)                                   | Create coin according to 0x2::coin standard.                                                                               |
 | [BeLock](./SUI_MOVE/locked)                                           | Coins & LPs Locker.                                                                                                        |
