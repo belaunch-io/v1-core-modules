@@ -1,0 +1,13 @@
+[package]
+name = "Swap"
+version = "1.0.0"
+
+[dependencies]
+Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework", rev = "devnet" }
+LockedCoins = { local = "locked" }
+
+[addresses]
+swap = "0x409d41b1b34346fe83c93162dd161bd3d47ff173"
+
+controller = "0x945b2cdaa73444319acf276e97e4cb1ff00e54e4"
+beneficiary = "0x945b2cdaa73444319acf276e97e4cb1ff00e54e4"
