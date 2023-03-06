@@ -1,8 +1,10 @@
 module examples::managed {
+    use std::vector;
     use std::option;
-    use sui::coin::{Self, Coin, TreasuryCap};
+    use sui::coin::{Self, Coin, TreasuryCap, value, split, destroy_zero};
     use sui::transfer;
     use sui::tx_context::{Self, TxContext};
+    use sui::pay;
 
     /// Name of the coin. By convention, this type has the same name as its parent module
     /// and has no fields. The full type of the coin defined by this module will be `COIN<MANAGED>`.
@@ -35,8 +37,31 @@ module examples::managed {
     }
 
     /// Manager can burn coins
-    public entry fun burn(treasury_cap: &mut TreasuryCap<MANAGED>, coin: Coin<MANAGED>) {
-        coin::burn(treasury_cap, coin);
+    public entry fun burn(treasury_cap: &mut TreasuryCap<MANAGED>, coin: vector<Coin<MANAGED>>, value: u64, ctx: &mut TxContext) {
+        // 1. merge coins
+        let merged_coins_in = vector::pop_back(&mut coin);
+        pay::join_vec(&mut merged_coins_in, coin);
+        let coin_in = split(&mut merged_coins_in, value, ctx);
+
+        // 2. burn coin
+        coin::burn(treasury_cap, coin_in);
+
+        // 3. handle remain coin
+        if (value(&merged_coins_in) > 0) {
+            transfer::transfer(
+                merged_coins_in,
+                tx_context::sender(ctx)
+            )
+        } else {
+            destroy_zero(merged_coins_in)
+        }
+    }
+
+    /// Manager can renounce ownership
+    public entry fun renounce_ownership(
+        treasury_cap: TreasuryCap<MANAGED>, _ctx: &mut TxContext
+    ) {
+        transfer::freeze_object(treasury_cap);
     }
 
     #[test_only]
