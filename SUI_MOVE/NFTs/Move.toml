@@ -1,0 +1,9 @@
+[package]
+name = "NFTs"
+version = "0.1.0"
+
+[dependencies]
+Sui = { local = "../sui/sui-framework" }
+
+[addresses]
+belaunch = "0x0"
