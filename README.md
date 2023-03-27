@@ -1,6 +1,6 @@
 # v1-core-modules
 
-![Banner](https://belaunch.infura-ipfs.io/ipfs/QmTMWmowbnEyE755YFg1KERc7nzMo7gc9AHf4RxaunoKfY)
+![Banner](https://dev-sui.belaunch.io/assets/banner.5ab71a7e.png)
 
 [![Actions Status](https://github.com/Uniswap/uniswap-v2-core/workflows/CI/badge.svg)](https://github.com/Uniswap/uniswap-v2-core/actions)
 
