@@ -63,10 +63,4 @@ module examples::managed {
     ) {
         transfer::freeze_object(treasury_cap);
     }
-
-    #[test_only]
-    /// Wrapper of module initializer for testing
-    public fun test_init(ctx: &mut TxContext) {
-        init(MANAGED {}, ctx)
-    }
 }
